@@ -15,13 +15,17 @@ export class AuthService {
       password: 'guess',
     },
   ];
-  async findOne(username: string) {
-    return this.users.find((user) => user.username === username);
+  async findOne(where: { id?: number; email?: string }) {
+    return this.users[0];
   }
 
-  async validateUser(username: string, pass: string): Promise<any> {
-    return this.users.find(
-      (user) => user.username === username && user.password === pass,
-    );
+  async createUser(data: {
+    firstName: string;
+    lastName: string;
+    email: string;
+    email_verified: boolean;
+    picture?: string;
+  }) {
+    return this.users[0];
   }
 }
